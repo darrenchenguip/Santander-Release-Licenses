@@ -1,0 +1,533 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Username of the person to release licenses from" Name="in_username" Type="InArgument(x:String)" />
+    <x:Property Name="in_orchestrator_url" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1722,2038</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="654,1973" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="int_last_status_code" />
+      <Variable x:TypeArguments="x:String" Name="str_last_response" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="dict_last_headers" />
+      <Variable x:TypeArguments="njl:JObject" sap2010:Annotation.AnnotationText="The JSON response from get user API reqest converted to a JObject" Name="jso_response" />
+      <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="ID of the user extracted from the get user API request" Name="int_username_id" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Username of the user extracted from the get user API request" Name="str_response_username" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="592,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Input agent username: '&quot; + in_username + &quot;'&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="IfOpenedByAppBrowser" DisplayName="Use Browser Edge: Login - UiPath Identity" sap:VirtualizedContainerService.HintSize="592,1681" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="Never" ScopeGuid="c87b84d5-1ca6-4ab9-9a56-187436a3a95c" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="558,1464" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence sap2010:Annotation.AnnotationText="Get ID of Username via API which is used to go to correct Edit page." DisplayName="Get Username ID via API" sap:VirtualizedContainerService.HintSize="496,1109" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:OrchestratorHttpRequest JSONPayload="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Get user from Orchestrator" DisplayName="Orchestrator HTTP Request" sap:VirtualizedContainerService.HintSize="434,276" sap2010:WorkflowViewState.IdRef="OrchestratorHttpRequest_1" Method="GET" RelativeEndpoint="[&quot;/odata/Users?$filter=UserName eq '&quot; + in_username + &quot;'&quot;]" ResponseHeaders="[dict_last_headers]" Result="[str_last_response]" StatusCode="[int_last_status_code]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:OrchestratorHttpRequest>
+              <ui:DeserializeJson x:TypeArguments="njl:JObject" sap2010:Annotation.AnnotationText="Convert JSON response to JObject" DisplayName="Deserialize JSON (DeserializeJson)" sap:VirtualizedContainerService.HintSize="434,67" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[jso_response]" JsonString="[str_last_response]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:DeserializeJson>
+              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,322" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                <TryCatch.Try>
+                  <Assign sap2010:Annotation.AnnotationText="Get &quot;username&quot; of user from JObject" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[str_response_username]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[cstr(jso_response("value")(0)("UserName"))]</InArgument>
+                    </Assign.Value>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Assign>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,159" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                      <Throw Exception="[new exception(&quot;Could not retrieve user from Orchestrator. Does user exist?&quot;)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+              </TryCatch>
+              <Assign sap2010:Annotation.AnnotationText="Get &quot;id&quot; of user from JObject" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Int32">[int_username_id]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Int32">[cint(jso_response("value")(0)("Id"))]</InArgument>
+                </Assign.Value>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Assign>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,25" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Working with username: '&quot; + str_response_username + &quot;' and ID: '&quot; + int_username_id.ToString + &quot;'&quot;]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:LogMessage>
+            </Sequence>
+            <Sequence sap2010:Annotation.AnnotationText="Remove license from user via the Web UI" DisplayName="Remove License from User" sap:VirtualizedContainerService.HintSize="496,80" sap2010:WorkflowViewState.IdRef="Sequence_16">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NGoToUrl sap2010:Annotation.AnnotationText="Navigate to Edit User screen (via address bar)" DisplayName="Go to &quot;Edit User&quot; screen" sap:VirtualizedContainerService.HintSize="450,113" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[in_orchestrator_url + &quot;/manage-access/assign-roles/&quot; + int_username_id.ToString]" Version="V3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NGoToUrl>
+              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click &quot;Personal Automations&quot;" ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="450,56" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c87b84d5-1ca6-4ab9-9a56-187436a3a95c" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://dehpwubghupfoa.eastus.cloudapp.azure.com/manage-access/assign-roles/10/edit?tid=1&amp;fid=4" DesignTimeRectangle="1047, 243, 185, 21" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Personal automations'" FullSelectorArgument="&lt;webctrl aaname='Personal automations setup' parentid='cdk-step-label-0-1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Personal automations setup' parentid='cdk-step-label-0-1' tag='SPAN' type='' class='mat-tooltip-trigger ng-star-inserted' check:innerText='Personal automations setup' /&gt;" Guid="2082fc05-7b57-4607-9a2d-1f5b66608609" InformativeScreenshot="7db40d503ca79d338f2e4078120640b2.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit - UiPath Orchestrator' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                </uix:NClick.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+              <ui:Comment sap:VirtualizedContainerService.HintSize="450,75" sap2010:WorkflowViewState.IdRef="Comment_1" Text="Insert Get Text activity here to save the domain\user value for later restoration" />
+              <Sequence sap2010:Annotation.AnnotationText="Uncheck &quot;Allow User to Run Personal Automations&quot;. (Checked/unchecked multiple times to enable 'Update' button more reliably.)" DisplayName="Uncheck Box" sap:VirtualizedContainerService.HintSize="450,80" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <uix:NCheck Action="Uncheck" sap2010:Annotation.AnnotationText="Uncheck &quot;Allow User to Run Personal Automations&quot;" DisplayName="Uncheck Box" sap:VirtualizedContainerService.HintSize="388,67" sap2010:WorkflowViewState.IdRef="NCheck_1" ScopeIdentifier="c87b84d5-1ca6-4ab9-9a56-187436a3a95c" Version="V3">
+                  <uix:NCheck.Target>
+                    <uix:TargetAnchorable BrowserURL="https://dehpwubghupfoa.eastus.cloudapp.azure.com/manage-access/assign-roles/10/edit?tid=1&amp;fid=4" DesignTimeRectangle="732, 305, 238, 24" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'checked'" FullSelectorArgument="&lt;webctrl parentid='mat-checkbox-3' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='mat-checkbox-3' tag='LABEL' type='' class='mat-checkbox-layout' aaname='' check:innerText='Enable user to run automations' /&gt;" Guid="d9c6b223-88a2-4354-809d-4555b5c0d1c3" InformativeScreenshot="d624a541ede14e83d542123853bb08c6.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit - UiPath Orchestrator' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                  </uix:NCheck.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NCheck>
+                <uix:NCheck Action="Check" sap2010:Annotation.AnnotationText="Check &quot;Allow User to Run Personal Automations&quot;" DisplayName="Check Box" sap:VirtualizedContainerService.HintSize="388,67" sap2010:WorkflowViewState.IdRef="NCheck_8" ScopeIdentifier="c87b84d5-1ca6-4ab9-9a56-187436a3a95c" Version="V3">
+                  <uix:NCheck.Target>
+                    <uix:TargetAnchorable BrowserURL="https://dehpwubghupfoa.eastus.cloudapp.azure.com/manage-access/assign-roles/10/edit?tid=1&amp;fid=4" DesignTimeRectangle="732, 305, 238, 24" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'checked'" FullSelectorArgument="&lt;webctrl parentid='mat-checkbox-3' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='mat-checkbox-3' tag='LABEL' type='' class='mat-checkbox-layout' aaname='' check:innerText='Enable user to run automations' /&gt;" Guid="d9c6b223-88a2-4354-809d-4555b5c0d1c3" InformativeScreenshot="d624a541ede14e83d542123853bb08c6.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit - UiPath Orchestrator' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                  </uix:NCheck.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NCheck>
+                <uix:NCheck Action="Uncheck" sap2010:Annotation.AnnotationText="Uncheck &quot;Allow User to Run Personal Automations&quot;" DisplayName="Uncheck Box" sap:VirtualizedContainerService.HintSize="388,67" sap2010:WorkflowViewState.IdRef="NCheck_9" ScopeIdentifier="c87b84d5-1ca6-4ab9-9a56-187436a3a95c" Version="V3">
+                  <uix:NCheck.Target>
+                    <uix:TargetAnchorable BrowserURL="https://dehpwubghupfoa.eastus.cloudapp.azure.com/manage-access/assign-roles/10/edit?tid=1&amp;fid=4" DesignTimeRectangle="732, 305, 238, 24" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'checked'" FullSelectorArgument="&lt;webctrl parentid='mat-checkbox-3' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='mat-checkbox-3' tag='LABEL' type='' class='mat-checkbox-layout' aaname='' check:innerText='Enable user to run automations' /&gt;" Guid="d9c6b223-88a2-4354-809d-4555b5c0d1c3" InformativeScreenshot="d624a541ede14e83d542123853bb08c6.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit - UiPath Orchestrator' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                  </uix:NCheck.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NCheck>
+              </Sequence>
+              <Delay DisplayName="Delay 1 Sec" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="Delay_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Delay>
+              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click &quot;Update&quot;" ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="450,56" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c87b84d5-1ca6-4ab9-9a56-187436a3a95c" Timeout="10" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://dehpwubghupfoa.eastus.cloudapp.azure.com/manage-access/assign-roles/10/edit?tid=1&amp;fid=4" DesignTimeRectangle="1752, 756, 88, 20" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Update'" FullSelectorArgument="&lt;webctrl aaname=' Update ' class='mat-button-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' Update ' class='mat-button-wrapper' tag='SPAN' type='' check:innerText='Update' /&gt;" Guid="ac92e0c9-ec9b-43a9-a1b1-de6d125e0cf4" InformativeScreenshot="ac36d7a5748fac3d0f9ee4363b3328d1.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit - UiPath Orchestrator' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                </uix:NClick.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+              <Delay DisplayName="Delay 3 Sec" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="Delay_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Delay>
+            </Sequence>
+            <Sequence sap2010:Annotation.AnnotationText="Remove license from user via the Web UI" DisplayName="Reapply License to User" sap:VirtualizedContainerService.HintSize="512,1856" sap2010:WorkflowViewState.IdRef="Sequence_17">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NCheckState DisplayName="Wait for 'Manage Access' Screen Load" sap:VirtualizedContainerService.HintSize="554,247" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="c87b84d5-1ca6-4ab9-9a56-187436a3a95c" Timeout="15" Version="V3">
+                <uix:NCheckState.Target>
+                  <uix:TargetAnchorable BrowserURL="https://dehpwubghupfoa.eastus.cloudapp.azure.com/manage-access/assign-roles?tid=1&amp;fid=4&amp;index=0&amp;size=10&amp;state=M4ewTgLgPgZglgUwDYBNYFclIHIEMC2CUKcYCAxhHCAHZS7DkB6LAJAAxSsCMUATFADMUACwBdMUA%3D%3D%3D" DesignTimeRectangle="392, 239, 37, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Roles'" FullSelectorArgument="&lt;webctrl parentid='mat-tab-link-41' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='mat-tab-link-41' tag='SPAN' type='' class='' aaname='Roles' check:innerText='Roles' /&gt;" Guid="e22c7fa8-1586-4623-a6fa-bd4ac094cb56" InformativeScreenshot="12807fb4f67e87508a26042ff8afc5fa.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Assign roles - UiPath Orchestrator' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Visible">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="268, 239, 82, 16" ElementType="Text" FriendlyName="'Assign roles'" FullSelectorArgument="&lt;webctrl parentid='mat-tab-link-40' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='mat-tab-link-40' tag='SPAN' type='' class='' aaname='Assign roles' check:innerText='Assign roles' /&gt;" SearchSteps="FuzzySelector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NCheckState.Target>
+              </uix:NCheckState>
+              <uix:NGoToUrl sap2010:Annotation.AnnotationText="Navigate to Edit User screen (via address bar)" DisplayName="Go to &quot;Edit User&quot; screen" sap:VirtualizedContainerService.HintSize="450,113" sap2010:WorkflowViewState.IdRef="NGoToUrl_2" Url="[in_orchestrator_url + &quot;/manage-access/assign-roles/&quot; + int_username_id.ToString]" Version="V3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NGoToUrl>
+              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click &quot;Personal Automations&quot;" ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="450,56" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c87b84d5-1ca6-4ab9-9a56-187436a3a95c" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://dehpwubghupfoa.eastus.cloudapp.azure.com/manage-access/assign-roles/10/edit?tid=1&amp;fid=4" DesignTimeRectangle="1047, 243, 185, 21" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Personal automations'" FullSelectorArgument="&lt;webctrl aaname='Personal automations setup' parentid='cdk-step-label-0-1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Personal automations setup' parentid='cdk-step-label-0-1' tag='SPAN' type='' class='mat-tooltip-trigger ng-star-inserted' check:innerText='Personal automations setup' /&gt;" Guid="2082fc05-7b57-4607-9a2d-1f5b66608609" InformativeScreenshot="7db40d503ca79d338f2e4078120640b2.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit - UiPath Orchestrator' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                </uix:NClick.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+              <uix:NCheck Action="Check" sap2010:Annotation.AnnotationText="Check &quot;Allow User to Run Personal Automations&quot;" DisplayName="Check Box" sap:VirtualizedContainerService.HintSize="450,67" sap2010:WorkflowViewState.IdRef="NCheck_2" ScopeIdentifier="c87b84d5-1ca6-4ab9-9a56-187436a3a95c" Version="V3">
+                <uix:NCheck.Target>
+                  <uix:TargetAnchorable BrowserURL="https://dehpwubghupfoa.eastus.cloudapp.azure.com/manage-access/assign-roles/10/edit?tid=1&amp;fid=4" DesignTimeRectangle="732, 305, 238, 24" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'checked'" FullSelectorArgument="&lt;webctrl parentid='mat-checkbox-3' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='mat-checkbox-3' tag='LABEL' type='' class='mat-checkbox-layout' aaname='' check:innerText='Enable user to run automations' /&gt;" Guid="d9c6b223-88a2-4354-809d-4555b5c0d1c3" InformativeScreenshot="d624a541ede14e83d542123853bb08c6.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit - UiPath Orchestrator' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                </uix:NCheck.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NCheck>
+              <uix:NCheck Action="Uncheck" sap2010:Annotation.AnnotationText="Uncheck &quot;Enable a Personal Workspace for this user&quot;" DisplayName="Uncheck Box" sap:VirtualizedContainerService.HintSize="450,67" sap2010:WorkflowViewState.IdRef="NCheck_3" ScopeIdentifier="c87b84d5-1ca6-4ab9-9a56-187436a3a95c" Version="V3">
+                <uix:NCheck.Target>
+                  <uix:TargetAnchorable BrowserURL="https://dehpwubghupfoa.eastus.cloudapp.azure.com/manage-access/assign-roles/10/edit?tid=1&amp;fid=4" DesignTimeRectangle="732, 399, 306, 24" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'checked'" FullSelectorArgument="&lt;webctrl parentid='mat-checkbox-11' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='mat-checkbox-11' tag='LABEL' type='' class='mat-checkbox-layout' aaname='' check:innerText='Enable a Personal Workspace for this user' /&gt;" Guid="2691e69c-86c4-4495-9447-4f74118f30df" InformativeScreenshot="45ce7038ca0e525015e9e5d9a5a4b315.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit - UiPath Orchestrator' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                </uix:NCheck.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NCheck>
+              <uix:NCheck Action="Check" sap2010:Annotation.AnnotationText="Check &quot;Attended User&quot;" DisplayName="Check Radio" sap:VirtualizedContainerService.HintSize="450,56" sap2010:WorkflowViewState.IdRef="NCheck_4" ScopeIdentifier="c87b84d5-1ca6-4ab9-9a56-187436a3a95c" Version="V3">
+                <uix:NCheck.Target>
+                  <uix:TargetAnchorable BrowserURL="https://dehpwubghupfoa.eastus.cloudapp.azure.com/manage-access/assign-roles/10/edit?tid=1&amp;fid=4" DesignTimeRectangle="739, 492, 123, 20" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'unchecked'" FullSelectorArgument="&lt;webctrl parentid='mat-radio-9' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='mat-radio-9' tag='LABEL' type='' class='mat-radio-label' aaname='' check:innerText='Attended User' /&gt;" Guid="ec2934a2-ae82-44c9-94e4-1f029b5c1c90" InformativeScreenshot="b7d98b6a05286e683f7cab76c68eb5b9.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit - UiPath Orchestrator' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                </uix:NCheck.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NCheck>
+              <ui:Comment sap:VirtualizedContainerService.HintSize="450,75" sap2010:WorkflowViewState.IdRef="Comment_2" Text="Add Type Into activity here to restore domain\user value" />
+              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click &quot;Robot Settings&quot;" ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="450,56" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c87b84d5-1ca6-4ab9-9a56-187436a3a95c" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://dehpwubghupfoa.eastus.cloudapp.azure.com/manage-access/assign-roles/10/edit?tid=1&amp;fid=4" DesignTimeRectangle="1713, 243, 96, 21" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Robot Settings'" FullSelectorArgument="&lt;webctrl aaname='Robot Settings' parentid='cdk-step-label-0-3' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Robot Settings' parentid='cdk-step-label-0-3' tag='SPAN' type='' class='mat-tooltip-trigger ng-star-inserted' check:innerText='Robot Settings' /&gt;" Guid="fc073c5d-a516-47ed-950f-b95a4d29c643" InformativeScreenshot="af34047ea7e0c699593c2995a919f1c2.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit - UiPath Orchestrator' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                </uix:NClick.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+              <uix:NCheck Action="Check" sap2010:Annotation.AnnotationText="Enable &quot;Logging Level&quot;" DisplayName="Check" sap:VirtualizedContainerService.HintSize="450,56" sap2010:WorkflowViewState.IdRef="NCheck_5" ScopeIdentifier="c87b84d5-1ca6-4ab9-9a56-187436a3a95c" Version="V3">
+                <uix:NCheck.Target>
+                  <uix:TargetAnchorable BrowserURL="https://dehpwubghupfoa.eastus.cloudapp.azure.com/manage-access/assign-roles/10/edit?tid=1&amp;fid=4" DesignTimeRectangle="732, 376, 44, 24" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'unchecked'" FullSelectorArgument="&lt;webctrl parentid='mat-slide-toggle-2' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='mat-slide-toggle-2' tag='LABEL' type='' class='mat-slide-toggle-label' aaname='' check:innerText='Customize Logging Level' /&gt;" Guid="74bcb865-3d5e-4d04-8b12-de4cf8b49270" InformativeScreenshot="80a6ca4695cae8dcba197380084f6b09.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit - UiPath Orchestrator' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                </uix:NCheck.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NCheck>
+              <uix:NSelectItem sap2010:Annotation.AnnotationText="Select &quot;Warning&quot; logging level" DisplayName="Select Item" sap:VirtualizedContainerService.HintSize="450,67" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="Warning" ScopeIdentifier="c87b84d5-1ca6-4ab9-9a56-187436a3a95c" Version="V3">
+                <uix:NSelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="7">
+                    <x:String>Verbose</x:String>
+                    <x:String>Trace</x:String>
+                    <x:String>Information</x:String>
+                    <x:String>Warning</x:String>
+                    <x:String>Error</x:String>
+                    <x:String>Critical</x:String>
+                    <x:String>Off</x:String>
+                  </scg:List>
+                </uix:NSelectItem.Items>
+                <uix:NSelectItem.Target>
+                  <uix:TargetAnchorable BrowserURL="https://dehpwubghupfoa.eastus.cloudapp.azure.com/manage-access/assign-roles/10/edit?tid=1&amp;fid=4" DesignTimeRectangle="782, 375, 1074, 22" DesignTimeScaleFactor="1" ElementType="DropDown" FriendlyName="'Informationkeyboard_arr…'" FullSelectorArgument="&lt;webctrl aria-label='Logging Level' aria-role='combobox' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Logging Level' aria-role='combobox' tag='DIV' type='' class='mat-ripple display ng-tns-c159-25 ng-star-inserted' aaname='' /&gt;" Guid="f6eaa5e0-6a25-4f6d-ab92-4d3630cc98a9" InformativeScreenshot="750ad37fb2ba952c9ba05118900d8de7.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit - UiPath Orchestrator' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="732, 376, 44, 24" ElementType="Text" FriendlyName="'checked'" FullSelectorArgument="&lt;webctrl parentid='mat-slide-toggle-2' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='mat-slide-toggle-2' tag='LABEL' type='' class='mat-slide-toggle-label' aaname='' check:innerText='Customize Logging Level' /&gt;" SearchSteps="FuzzySelector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NSelectItem.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NSelectItem>
+              <uix:NCheck Action="Check" sap2010:Annotation.AnnotationText="Enable &quot;Auto Download Processes&quot;" DisplayName="Check" sap:VirtualizedContainerService.HintSize="450,67" sap2010:WorkflowViewState.IdRef="NCheck_6" ScopeIdentifier="c87b84d5-1ca6-4ab9-9a56-187436a3a95c" Version="V3">
+                <uix:NCheck.Target>
+                  <uix:TargetAnchorable BrowserURL="https://dehpwubghupfoa.eastus.cloudapp.azure.com/manage-access/assign-roles/10/edit?tid=1&amp;fid=4" DesignTimeRectangle="732, 960, 44, 24" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'unchecked'" FullSelectorArgument="&lt;webctrl parentid='mat-slide-toggle-9' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='mat-slide-toggle-9' tag='LABEL' type='' class='mat-slide-toggle-label' aaname='' check:innerText='Customize Auto Download Processes' /&gt;" Guid="69ff8851-06cf-4923-8d87-cb0e9da1fbde" InformativeScreenshot="8a84eb3285a407239130f69fad776028.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit - UiPath Orchestrator' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                </uix:NCheck.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NCheck>
+              <uix:NCheck Action="Check" sap2010:Annotation.AnnotationText="Click &quot;Yes&quot; (Auto Download Processes)" DisplayName="Check Radio" sap:VirtualizedContainerService.HintSize="450,67" sap2010:WorkflowViewState.IdRef="NCheck_7" ScopeIdentifier="c87b84d5-1ca6-4ab9-9a56-187436a3a95c" Version="V3">
+                <uix:NCheck.Target>
+                  <uix:TargetAnchorable BrowserURL="https://dehpwubghupfoa.eastus.cloudapp.azure.com/manage-access/assign-roles/10/edit?tid=1&amp;fid=4" DesignTimeRectangle="782, 965, 42, 16" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'unchecked'" FullSelectorArgument="&lt;webctrl parentid='mat-radio-23' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='mat-radio-23' tag='LABEL' type='' class='mat-radio-label' aaname='' check:innerText='Yes' /&gt;" Guid="9bf55b1b-6b5f-423d-a91e-dcd147f88618" InformativeScreenshot="057d195ac0d2361b9d46bc2323bb237e.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit - UiPath Orchestrator' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="732, 942, 1124, 46" FriendlyName="'Customize Auto'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;portal-sheet&amp;gt;ui-app&amp;gt;ng-component&amp;gt;ui-side-drawer&amp;gt;mat-drawer-container&amp;gt;mat-drawer-content&amp;gt;div&amp;gt;div&amp;gt;ui-ap-shell&amp;gt;ap-shell&amp;gt;ui-sidenav&amp;gt;mat-sidenav-container&amp;gt;mat-sidenav-content&amp;gt;div&amp;gt;ui-menu-navigation&amp;gt;section&amp;gt;section&amp;gt;section&amp;gt;ng-component&amp;gt;ui-upsert-page-layout&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ui-user-upsert-split-component&amp;gt;form&amp;gt;section&amp;gt;div&amp;gt;ui-execution-settings&amp;gt;form&amp;gt;section&amp;gt;mat-form-field&amp;gt;div&amp;gt;div&amp;gt;div' idx='15' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='mat-form-field-infix ng-tns-c31-32' tag='DIV' aaname='' check:innerText='Customize Auto Download Processes&amp;#xD;&amp;#xA;Yes&amp;#xD;&amp;#xA;No&amp;#xD;&amp;#xA;Auto Download Processes' /&gt;" ImageBase64="" SearchSteps="FuzzySelector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NCheck.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NCheck>
+              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click 'Update'" ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="450,188" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c87b84d5-1ca6-4ab9-9a56-187436a3a95c" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://dehpwubghupfoa.eastus.cloudapp.azure.com/manage-access/assign-roles/10/edit?tid=1&amp;fid=4" DesignTimeRectangle="1752, 1067, 88, 20" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Update'" FullSelectorArgument="&lt;webctrl aaname=' Update ' class='mat-button-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' Update ' class='mat-button-wrapper' tag='SPAN' type='' check:innerText='Update' /&gt;" Guid="76d44e33-4d2f-4070-946b-d739eeac9bfe" InformativeScreenshot="cfb25244102917e435818e8904e9a9f7.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Edit - UiPath Orchestrator' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                </uix:NClick.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+              <Delay sap2010:Annotation.AnnotationText="Delay 3 seconds to allow update to complete before closing window." DisplayName="Delay 3 Sec" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="450,82" sap2010:WorkflowViewState.IdRef="Delay_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Delay>
+            </Sequence>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="99, 81, 1763, 1211" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH4wcPFxsu2s58agAAAg1JREFUWEft1r1rFEEYx/H4bhQJBnKosdHCwi6VREihRUzjC4gSonUQm/wB0UaLVEKilWAbTGkrqCAW6SxEFBFELKxiI4iSaOL3uzvPMVwsTu52E8GBD9zMMzP727u93e1ZHm2sbaRNF+AXVirmMf4YwMIMzuJCRdz7DlaxLoDpnNRTVXNvjKP5LVQSwD2wBbuxrewPxHi1AVyPXZjCU9zHEbQfINkJz0DbHcubfXiW+bx0to3T+IrY29891rQVoBf38Cy5gnTostlHHx7AOZ7tOTh+CT8Re89jK6y1FWAfFhG1aaRDl80+BvAaMe86HB/EY3zDR0Qw1RJA/TiBo/CnivFaAng9nMQpeD0cRKypJcBhvMUyvmMCsaa2AB/SmHe9q4g1/wP8mwFuIB26bPZRWYC9eIGo3UaxQbTUP4B3iHmTcLzjAN77HyFqD1Hc56P5GUNYQuv6jgPoFqL2GcOImgzpC0w+5zisdSWAd7IviPorXMMIzmAO+RNvAT4ZXduVADswi6jLhT5gfmRj+oT8G+osQPYbe5X7uPV2GvNaeRGez9541IUAY80Fe3ARPtNf4j3e4Alu4hiKucW68nMD/iT+k55jFFFrL0A0+4n/gv04BA/gS0tRy1sa8/Fr3fAq3qiSvwvQzebe2LwBHPTl8TKcVAX3vgsvzHUBZMEgVWoeXK0BarfBARprvwFZ98PAeJe6iAAAAABJRU5ErkJggg==" InformativeScreenshot="0256b33fd801b7a366587f7bc8d1d273.jpg" Selector="&lt;html app='msedge.exe' /&gt;" Title="Login - UiPath Identity" Url="[in_orchestrator_url]" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
